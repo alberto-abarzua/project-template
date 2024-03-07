@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  frontend:
+    build: ./frontend 
+    stop_grace_period: 5s
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/index.html:/app/index.html
+      - ./frontend/package.json:/app/package.json
+      - ./frontend/package-lock.json:/app/package-lock.json
+      - ./frontend/tailwind.config.js:/app/tailwind.config.js
+      - ./frontend/public/:/app/public/
+      - ./frontend/components.json:/app/components.json
+      - ./frontend/postcss.config.js:/app/postcss.config.js
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_SUPABASE_URL
+      - VITE_SUPABASE_KEY
+
+  db:
+    build: ./db
+    volumes:
+      - ./db/src:/app/src
+      - ./db/package.json:/app/package.json
+      - ./db/package-lock.json:/app/package-lock.json
+      - ./supabase/functions/_shared/schema/:/supabase/schema/
+      - ./supabase/migrations:/supabase/migrations
+
+
+
