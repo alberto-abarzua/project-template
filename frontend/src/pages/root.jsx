@@ -1,5 +1,4 @@
 import { useOutlet } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { Toaster } from '@/components/ui/sonner';
 import NavBar from '@/components/layout/nav/NavBar';
 
