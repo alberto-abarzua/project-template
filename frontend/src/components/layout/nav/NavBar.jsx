@@ -4,12 +4,16 @@ import { Bars3Icon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outlin
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userSliceActions } from '@/redux/userSlice';
+import { useLocation } from 'react-router-dom';
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
 }
 
 const NavBar = () => {
+    // current path
+    const location = useLocation();
+    console.log('path', location);
     const dispatch = useDispatch();
 
     const { session } = useSelector(state => state.user);
@@ -18,7 +22,7 @@ const NavBar = () => {
         {
             name: 'Home',
             href: '/',
-            current: true,
+            current: location.pathname === '/',
         },
     ];
 
@@ -42,7 +46,7 @@ const NavBar = () => {
         links.push({
             name: 'Login',
             href: '/login',
-            current: false,
+            current: location.pathname === '/login',
         });
     }
 

@@ -36,7 +36,7 @@ const Home = () => {
                 aria-hidden="true"
             >
                 <div
-                    className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20"
+                    className="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-blue-300 to-green-500 opacity-30"
                     style={{
                         clipPath:
                             'polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)',
@@ -47,7 +47,7 @@ const Home = () => {
                 <div className="mx-auto max-w-2xl flex-shrink-0 lg:mx-0 lg:max-w-xl lg:pt-8">
                     <div className="mt-24 sm:mt-32 lg:mt-16">
                         <a href="#" className="inline-flex space-x-6">
-                            <span className="rounded-full bg-indigo-500/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-400 ring-1 ring-inset ring-indigo-500/20">
+                            <span className="rounded-full bg-green-500/10 px-3 py-1 text-sm font-semibold leading-6 text-green-400 ring-1 ring-inset ring-green-500/20">
                                 {'Lo Nuevo'}
                             </span>
                             <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
@@ -60,7 +60,7 @@ const Home = () => {
                         </a>
                     </div>
                     <h1 className="mt-10 text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                        La mejor forma de <span className="text-indigo-400">verbo</span> tu vida.
+                        La mejor forma de <span className="text-green-500">verbo</span> tu vida.
                     </h1>
                     <p className="mt-6 text-lg leading-8 text-gray-300">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
@@ -69,7 +69,7 @@ const Home = () => {
                     <div className="mt-10 flex items-center gap-x-6">
                         <a
                             href="#"
-                            className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                            className="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-400"
                         >
                             Contactanos
                         </a>
