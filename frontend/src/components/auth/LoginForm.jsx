@@ -16,7 +16,7 @@ import React from 'react';
 import { Input } from '@/components/ui/input';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { userSliceActions } from '@/redux/userSlice';
+import { userSliceActions } from '@/redux/slices/userSlice';
 import supabase from '@/utils/supabase/client';
 import { useNavigate } from 'react-router-dom';
 

@@ -3,7 +3,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { userSliceActions } from '@/redux/userSlice';
+import { userSliceActions } from '@/redux/slices/userSlice';
 import { useLocation } from 'react-router-dom';
 
 function classNames(...classes) {
@@ -11,9 +11,7 @@ function classNames(...classes) {
 }
 
 const NavBar = () => {
-    // current path
     const location = useLocation();
-    console.log('path', location);
     const dispatch = useDispatch();
 
     const { session } = useSelector(state => state.user);
