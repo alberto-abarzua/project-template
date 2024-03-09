@@ -30,8 +30,8 @@ export function* refreshSessionSaga() {
             if (session) {
                 const timeUntilExpiration = session.expires_in;
 
-                if (timeUntilExpiration > 300) {
-                    yield delay((timeUntilExpiration - 300) * 1000); // Wait until 5 minutes before expiration
+                if (timeUntilExpiration > 200) {
+                    yield delay(timeUntilExpiration * 1000 * 0.8);
                 }
 
                 const {
@@ -47,7 +47,8 @@ export function* refreshSessionSaga() {
                 }
             } else {
                 yield put(userSliceActions.logout());
-                return;
+                yield delay(5000);
+                continue;
             }
         } catch (error) {
             console.error('Error refreshing session:', error);
@@ -55,6 +56,10 @@ export function* refreshSessionSaga() {
             return;
         }
     }
+}
+
+export function* watchSessionUpdate() {
+    yield takeLatest(userSliceActions.updateSession.type, refreshSessionSaga);
 }
 
 export function* watchLogout() {
