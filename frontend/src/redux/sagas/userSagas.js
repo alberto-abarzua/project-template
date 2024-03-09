@@ -1,6 +1,6 @@
-import { delay, call, put, takeLatest } from 'redux-saga/effects';
+import { delay, call, put, takelatest } from 'redux-saga/effects';
 
-import { userSliceActions } from '@/redux/slices/userSlice';
+import { usersliceactions } from '@/redux/slices/userslice';
 
 import supabase from '@/utils/supabase/client';
 
@@ -14,53 +14,55 @@ const call_purge = persistor => {
     });
 };
 
-function* handleLogout() {
-    yield call([supabase.auth, supabase.auth.signOut]);
+function* handlelogout() {
+    yield call([supabase.auth, supabase.auth.signout]);
     yield call(call_purge, persistor);
 }
 
-export function* refreshSessionSaga() {
+export function* refreshsessionsaga() {
     while (true) {
         try {
             const {
                 data: { session },
-            } = yield call([supabase.auth, supabase.auth.getSession]);
-            yield put(userSliceActions.setUserSession(session));
+            } = yield call([supabase.auth, supabase.auth.getsession]);
+
+            yield put(usersliceactions.setusersession(session));
 
             if (session) {
-                const timeUntilExpiration = session.expires_in;
+                const timeuntilexpiration =
+                    new date(session.expires_at).gettime() - new date().gettime();
 
-                if (timeUntilExpiration > 200) {
-                    yield delay(timeUntilExpiration * 1000 * 0.8);
+                if (timeuntilexpiration > 200) {
+                    yield delay(timeuntilexpiration * 1000 * 0.6);
                 }
 
                 const {
-                    data: { session: refreshedSession },
-                    error: refreshError,
-                } = yield call([supabase.auth, supabase.auth.refreshSession]);
+                    data: { session: refreshedsession },
+                    error: refresherror,
+                } = yield call([supabase.auth, supabase.auth.refreshsession]);
 
-                if (refreshError) {
-                    console.error('Session refresh error:', refreshError);
-                    yield put(userSliceActions.logout());
+                if (refresherror) {
+                    console.error('session refresh error:', refresherror);
+                    yield put(usersliceactions.logout());
                 } else {
-                    yield put(userSliceActions.setUserSession(refreshedSession));
+                    yield put(usersliceactions.setusersession(refreshedsession));
                 }
             } else {
                 yield delay(5000);
                 continue;
             }
         } catch (error) {
-            console.error('Error refreshing session:', error);
+            console.error('error refreshing session:', error);
             yield delay(5000);
             continue;
         }
     }
 }
 
-export function* watchSessionUpdate() {
-    yield takeLatest(userSliceActions.updateSession.type, refreshSessionSaga);
+export function* watchsessionupdate() {
+    yield takelatest(usersliceactions.updatesession.type, refreshsessionsaga);
 }
 
-export function* watchLogout() {
-    yield takeLatest(userSliceActions.logout.type, handleLogout);
+export function* watchlogout() {
+    yield takelatest(usersliceactions.logout.type, handlelogout);
 }
