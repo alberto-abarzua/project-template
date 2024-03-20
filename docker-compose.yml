@@ -26,10 +26,8 @@ services:
       - ./db/package-lock.json:/app/package-lock.json
       - ./supabase/functions/_shared/schema/:/supabase/schema/
       - ./supabase/migrations:/supabase/migrations
-
-
-
   fastapi:
+    image: uintuser/project-template-fastapi:latest
     build:
       context: "./fastapi"
     volumes:
