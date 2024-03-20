@@ -1,9 +1,9 @@
 name: Deploy Supabase Edge Functions
 
 on:
-  push:
-    branches:
-      - main
+  # push: # uncomment this line to trigger the workflow on push
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 jobs:
