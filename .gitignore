@@ -1,4 +1,7 @@
-# Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react
+#ght{
+  "venvPath": ".",
+  "venv": ".venv"
+} Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,django,react
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,django,react
 ### NextJS ###
 # dependencies
@@ -298,8 +301,6 @@ poetry.toml
 # ruff
 .ruff_cache/
 
-# LSP config files
-pyrightconfig.json
 
 ### react ###
 .DS_*

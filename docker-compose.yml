@@ -29,3 +29,12 @@ services:
 
 
 
+  fastapi:
+    build:
+      context: "./fastapi"
+    volumes:
+      - ./fastapi/src:/app/src
+      - ./fastapi//pyproject.toml:/app/pyproject.toml
+      - ./fastapi/pdm.lock:/app/pdm.lock
+    ports:
+      - "8000:8000"
