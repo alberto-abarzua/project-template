@@ -1,12 +1,24 @@
-# Project Template
+# Project Templates for Quick Starts
 
 ## Technology Stack
 
-### Backend
+### Supabase
 
-The backend infrastructure is powered by Supabase, offering a suite of tools including Supabase Auth for authentication, Postgres DB for database management, and edge functions to handle backend logic efficiently.
+Used for edge functions, auth, and database.
 
-### Frontend
+### DB
 
-The frontend is developed with React, leveraging Tailwind CSS for styling to ensure a sleek and responsive user interface. State management is handled by Redux Toolkit, with Saga used for managing side effects. React Router is incorporated for seamless navigation throughout the application.
+Here we have drizzle schema for the database (Postgres), also providing migrations 
+
+### Fastapi 
+
+Dockerized FastAPI app with sqlalchemy and integration with supabase auth
+
+### Expo React
+
+React Native app with supabase auth integration
+
+### React with Vite
+
+React app with supabase auth integration
 
