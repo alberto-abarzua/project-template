@@ -17,9 +17,6 @@ async def get_users(db_and_base: tuple = db_dependency):
     users = db.query(Base.classes.users).all()
     return users
 
-# protected route test
-
-
 @health_router.get("/protected")
 async def protected_route(user=user_dependency):
     if user is None:

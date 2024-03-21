@@ -1,11 +1,14 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, Redirect } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useEffect } from 'react';
 import '../global.css';
+import store, { persistor } from '@/redux/store';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 export {
     // Catch any errors thrown by the Layout component.
@@ -46,11 +49,15 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
     return (
-        <SafeAreaProvider >
-            <Stack>
-                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-            </Stack>
-        </SafeAreaProvider>
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <SafeAreaProvider>
+                    <Stack>
+                        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+                    </Stack>
+                </SafeAreaProvider>
+            </PersistGate>
+        </Provider>
     );
 }
