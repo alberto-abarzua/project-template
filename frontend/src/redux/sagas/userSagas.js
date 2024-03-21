@@ -27,6 +27,7 @@ export function* refreshSessionSaga() {
             } = yield call([supabase.auth, supabase.auth.getSession]);
 
             yield put(userSliceActions.setUserSession(session));
+            console.log('Session:', session);
 
             if (session) {
                 const expiresAt = session.expires_at;

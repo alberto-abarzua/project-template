@@ -35,3 +35,7 @@ services:
       - ./fastapi/pdm.lock:/app/pdm.lock
     ports:
       - "8000:8000"
+    environment:
+      - SUPABASE_DB_URL
+      - SUPABASE_URL
+      - SUPABASE_KEY
